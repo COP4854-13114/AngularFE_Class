@@ -1,19 +1,9 @@
-<p>home works!</p>
-{{helloWorld}} <!--String Interpolation-->
-<br/>
-<input type="text" [value]="helloWorld"/>
 
-
-<button (click)="helloWorld='test';">Click Me!</button>
-<br/>
-
-<input *ngIf="helloWorld=='test'" type="text" [(ngModel)]="helloWorld"/>
-<!--<p>{{blogAry[0]}}</p>
-<hr/>
-<p>{{blogAry[1]}}</p>
-<hr/>
-<p>{{blogAry[2]}}</p>-->
+<!--[BlogArray]="this.blogAry"-->
 <span *ngFor="let blog of blogAry">
 <p>{{blog}}</p>
 <hr/>
 </span>
+
+<a [routerLink]="['/newblog']">Add Blog Entry</a><br/>
+<a [routerLink]="['/Login']">Go to Login Router Link</a>

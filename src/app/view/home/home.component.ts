@@ -1,20 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { BloggerService } from '../../services/blogger.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
 
   blogAry:string[]=[];
-  helloWorld:string='Hello World!';
-  constructor(){
-    setTimeout(() => {
-      this.helloWorld='Good bye World';
-    }, 3000);
-    this.blogAry.push('My first blog entry!');
-    this.blogAry.push('My second blog entry!');
-    this.blogAry.push('My third blog entry!');
+
+  constructor(private bloggerSvc:BloggerService){
+
+        
   }
+  ngOnDestroy(): void {
+    console.log('From On Destroy');
+  }
+  ngOnInit(): void {
+    this.blogAry = this.bloggerSvc.GetBlogAry();
+  }
+  AddNewEntry(newBlog:string)
+  {
+    this.blogAry.unshift(newBlog);
+  }
+  
 }
