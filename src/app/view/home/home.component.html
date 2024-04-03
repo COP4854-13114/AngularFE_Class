@@ -1,5 +1,8 @@
 
 <!--[BlogArray]="this.blogAry"-->
+<br/>
+<mat-progress-bar color="accent" *ngIf="blogAry.length==0" mode="indeterminate"></mat-progress-bar>
+
 <span *ngFor="let blog of blogAry">
 <p>{{blog}}</p>
 <hr/>
