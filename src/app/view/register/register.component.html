@@ -1,0 +1,59 @@
+<mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Register Account</mat-card-title>  
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+              <!--@if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {-->
+                <mat-error *ngIf="emailFormControl.hasError('email')">Please enter a valid email address</mat-error>
+              <!--}-->
+              @if (emailFormControl.hasError('required')) {
+                <mat-error>Email is <strong>required</strong></mat-error>
+              }
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>UserId</mat-label>
+                <input type="text" matInput [formControl]="userFormControl" placeholder="jsmith">
+                
+                @if (userFormControl.hasError('required')) {
+                  <mat-error>User Id is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Fist Name</mat-label>
+                <input type="text" matInput [formControl]="fnameFomrControl" placeholder="jsmith">
+                
+                @if (fnameFomrControl.hasError('required')) {
+                  <mat-error>First Name is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Last Name</mat-label>
+                <input type="text" matInput [formControl]="lnameFormControl" placeholder="jsmith">
+                
+                @if (lnameFormControl.hasError('required')) {
+                  <mat-error>Last Name is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput [formControl]="pwdFormControl" placeholder="jsmith">
+                
+                @if (pwdFormControl.hasError('required')) {
+                  <mat-error>Password is <strong>required</strong></mat-error>
+                }
+            </mat-form-field>
+          </form>
+          <span *ngIf="errorMessage" class="error">{{errorMessage}}</span>
+    </mat-card-content>
+    <mat-card-actions>
+        <button (click)="RegisterUser()" mat-raised-button color="primary">Create Account</button>
+    </mat-card-actions>
+    
+  </mat-card>
+
+  

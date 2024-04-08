@@ -4,11 +4,14 @@
     </button>
     <span>My Lovely Blog - Blog Entry Count {{blogCount}}</span>
     <span class="example-spacer"></span>
-    <button matTooltip="Click here to go to the homepage" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <button [routerLink]="['/']" matTooltip="Click here to go to the homepage" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
       <mat-icon >home</mat-icon>
     </button>
-    <button mat-icon-button matTooltip="Click here to Login to the Blog" class="example-icon" aria-label="Example icon-button with share icon">
+    <button [routerLink]="['/Login']" mat-icon-button matTooltip="Click here to Login to the Blog" class="example-icon" aria-label="Example icon-button with share icon">
       <mat-icon>login</mat-icon>
+    </button>
+    <button [routerLink]="['/register']" mat-icon-button matTooltip="Click here to Login to the Blog" class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>person_add</mat-icon>
     </button>
   </mat-toolbar>
   

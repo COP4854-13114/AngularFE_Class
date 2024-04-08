@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './view/home/home.component';
@@ -15,6 +16,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { RegisterComponent } from './view/register/register.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     LoginComponent,
     TestbuttonComponent,
     NewblogComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatButtonModule,
     MatTooltipModule,
     HttpClientModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [
     provideAnimationsAsync()
