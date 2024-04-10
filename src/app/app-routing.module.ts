@@ -4,6 +4,7 @@ import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
 import { NewblogComponent } from './view/newblog/newblog.component';
 import { RegisterComponent } from './view/register/register.component';
+import { noauthGuard } from './guards/noauth.guard';
 
 const routes: Routes = [
 {
@@ -16,6 +17,7 @@ const routes: Routes = [
 },
 {
   path:'newblog',
+  canActivate:[noauthGuard],
   component:NewblogComponent
 },
 {

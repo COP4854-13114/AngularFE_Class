@@ -14,12 +14,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { RegisterComponent } from './view/register/register.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { btinterInterceptor } from './interceptor/btinter.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient(withInterceptors([btinterInterceptor]))
   ],
   bootstrap: [AppComponent]
 })
