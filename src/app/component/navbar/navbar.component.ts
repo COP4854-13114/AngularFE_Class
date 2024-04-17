@@ -21,6 +21,8 @@ export class NavbarComponent implements OnInit {
     this.blogSvc.UserLoggedIn.subscribe((userId:string)=>{
       this.blogSvc.GetUserInfo(userId).then((data:UserInfo|null)=>{
         this.currentUserInfo = data;
+        if(data)
+          this.blogSvc.SetCurrentUserInfo(data);
       });
     });
   }

@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { BlogEntry } from '../../model/blogentry';
+import { UserInfo } from '../../model/userinfo';
 import { BloggerService } from '../../services/blogger.service';
 
 @Component({
@@ -8,8 +10,8 @@ import { BloggerService } from '../../services/blogger.service';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  blogAry:string[]=[];
-
+  blogAry:BlogEntry[]=[];
+  currentUserInfo:UserInfo|null=null;
   constructor(private bloggerSvc:BloggerService){
 
         
@@ -19,10 +21,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.blogAry = this.bloggerSvc.GetBlogAry();
+    this.currentUserInfo = this.bloggerSvc.currentUserInfo;
   }
   AddNewEntry(newBlog:string)
   {
-    this.blogAry.unshift(newBlog);
+    //this.blogAry.unshift(newBlog);
   }
   
 }

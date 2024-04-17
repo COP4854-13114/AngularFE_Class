@@ -4,7 +4,10 @@
 <mat-progress-bar color="accent" *ngIf="blogAry.length==0" mode="indeterminate"></mat-progress-bar>
 
 <span *ngFor="let blog of blogAry">
-<p>{{blog}}</p>
+    <h4>Written by: {{blog.userId}}</h4>
+    <h4> Current User: {{this.currentUserInfo?.userId}}</h4>
+<p>{{blog.content}}</p>
+<button *ngIf="this.currentUserInfo?.userId===blog.userId">Edit</button>
 <hr/>
 </span>
 
